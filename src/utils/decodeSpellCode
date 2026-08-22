@@ -1,0 +1,70 @@
+import { codeMaps } from './spellCodeMaps';
+import { decode as base64Decode } from 'js-base64';
+
+// Helper to reverse lookup code → key
+function reverseLookup(map, value) {
+  return Object.keys(map).find(key => map[key] === value) || "Unknown";
+}
+
+// Helper to decode class codes into class names
+function decodeClasses(classString) {
+  // If the string contains commas, split by commas
+  // Otherwise, split into individual characters (for backward compatibility)
+  const separator = classString.includes(',') ? ',' : '';
+  return classString
+    .split(separator)
+    .map(code => reverseLookup(codeMaps.classes, code))
+    .filter(cls => cls !== "Unknown");
+}
+
+export function decodeSpellCode(spellCode) {
+  const [fields, metadataEncoded] = spellCode.split(':');
+
+  if (!fields || !metadataEncoded) return null;
+
+  const metaParts = base64Decode(metadataEncoded).split('#!#');
+
+  // Split the fields into main data and class codes
+  const mainData = fields.slice(0, 42);
+  const classData = fields.slice(42);
+
+  const decoded = {
+    level: parseInt(mainData.slice(0, 1)),
+    school: reverseLookup(codeMaps.school, mainData.slice(1, 3)),
+    effects: [
+      reverseLookup(codeMaps.effect, mainData.slice(3, 5)),
+      reverseLookup(codeMaps.effect, mainData.slice(5, 7)),
+      reverseLookup(codeMaps.effect, mainData.slice(7, 9))
+    ],
+    castingTime: reverseLookup(codeMaps.castingTime, mainData.slice(9, 10)),
+    range: reverseLookup(codeMaps.range, mainData.slice(10, 12)),
+    duration: reverseLookup(codeMaps.duration, mainData.slice(12, 13)),
+    area: reverseLookup(codeMaps.area, mainData.slice(13, 15)),
+    ritual: mainData[15] === '1',
+    concentration: mainData[16] === '1',
+    upcastable: mainData[17] === '1',
+    verbal: mainData[18] === 'V',
+    somatic: mainData[19] === 'S',
+    material: mainData[20] === 'M',
+    materialCost: parseInt(mainData.slice(21, 25)),
+    materialType: reverseLookup(codeMaps.materialType, mainData.slice(25, 27)),
+    attackSave: reverseLookup(codeMaps.attackSave, mainData.slice(27, 28)),
+    damageSpell: mainData[28] === '1',
+    avgRoll: parseInt(mainData.slice(29, 32)),
+    targets: parseInt(mainData.slice(32, 34)),
+    hasRestriction: mainData[34] === '1',
+    stability: parseInt(mainData.slice(35, 37)) / 100,
+    craftingDC: parseInt(mainData.slice(37, 39)),
+    power: parseInt(mainData.slice(39, 42)),
+    
+    name: metaParts[0],
+    author: metaParts[1],
+    materialText: metaParts[2],
+    restrictionText: metaParts[3],
+    description: metaParts[4],
+    // Convert the comma-separated class list into an array
+    classes: metaParts[5] ? metaParts[5].split(',') : ["Wizard"]
+  };
+
+  return decoded;
+}

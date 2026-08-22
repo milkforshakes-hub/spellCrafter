@@ -1,0 +1,310 @@
+// This function calculates the power of a spell based on various parameters.
+// It takes into account the spell's level, material cost, components used, area of effect, etc.
+// The function returns the calculated power as a number.
+const EFFECT_POWER = {
+  None: 0,
+  Combat: 25,
+  Control: 25,
+  Utility: 15,
+  Creation: 10,
+  Buff: 8,
+  Communication: 16,
+  Healing: 15,
+  Foreknowledge: 14,
+  Detection: 14,
+  Charmed: 20,
+  Debuff: 12,
+  Frightened: 16,
+  Blinded: 20,
+  Prone: 15,
+  Social: 14,
+  Shapechanging: 10,
+  Deception: 14,
+  Restrained: 18,
+  Movement: 15,
+  Exploration: 15,
+  Summoning: 20,
+  Warding: 16,
+  Unconscious: 25,
+  Dunamancy: 18,
+  Invisible: 16,
+  Teleportation: 18,
+  Deafened: 12,
+  Additional: 18,
+  Negation: 18,
+  Banishment: 18,
+  Environment: 16,
+  Stunned: 22,
+  Petrified: 22,
+  Paralyzed: 20,
+  Poison: 10,
+  Thunder: 13,
+  Psychic: 20,
+  Radiant: 18,
+  Bludgeoning: 13,
+  Fire: 15,
+  Force: 20,
+  Acid: 12,
+  Necrotic: 21,
+  Cold: 15,
+  Lightning: 16,
+  Piercing: 13,
+  Slashing: 20
+};
+
+const COMPONENT_BONUS = {
+  verbal: 0.5,
+  somatic: 0.5,
+  material: 1.0,
+};
+
+const RANGE_MOD = {
+  "Self": -0.5,
+  "Self (5 ft)": -0.25,
+  "Self (15 ft)": -0.1,
+  "Self (30 ft)": 0,
+  "Self (60 ft)": 0.1,
+  "Touch": -0.6,
+  "5 ft": -0.5,
+  "10 ft": -0.3,
+  "15 ft": -0.2,
+  "20 ft": -0.1,
+  "30 ft": 0,
+  "40 ft": 0.1,
+  "50 ft": 0.15,
+  "60 ft": 0.2,
+  "90 ft": 0.25,
+  "100 ft": 0.3,
+  "120 ft": 0.35,
+  "150 ft": 0.5,
+  "200 ft": 0.6,
+  "300 ft": 0.7,
+  "500 ft": 0.9,
+  "1000 ft": 1.2,
+  "1 mile": 1.5,
+  "5 miles": 1.7,
+  "500 miles": 2,
+  "Sight": 1,
+  "Unlimited": 2.25
+};
+
+
+const DURATION_MOD = {
+  "Instantaneous": 0,
+  "1 Round": 0.05,
+  "6 Rounds": 0.2,
+  "1 Minute": 0.5,
+  "10 Minutes": 0.65,
+  "1 Hour": 0.75,
+  "2 Hours": 0.8,
+  "8 Hours": 0.9,
+  "24 Hours": 1.2,
+  "7 Days": 1.5,
+  "10 Days": 1.6,
+  "30 Days": 2,
+  "Until Dispelled": 2.5,
+  "Until Dispelled or Triggered": 2.5,
+  "Special": 0.6,
+  
+};
+
+const CASTING_MOD = {
+  "1 Reaction": 0.75,
+  "1 Bonus Action": 0.5,
+  "1 Action": 0,
+  "1 Minute": -0.1,
+  "10 Minutes": -0.2,
+  "1 Hour": -0.3,
+  "8 Hours": -0.4,
+  "12 Hours": -0.45,
+  "24 Hours": -0.5,
+  "Special": -0.25,
+  
+};
+
+const ATTACK_SAVE_MOD = {
+  "None": 0,
+  "Melee Attack": -0.25, 
+  "Ranged Attack": -0.25, 
+  "DEX Save": -0.5, 
+  "CON Save": -0.5,
+  "WIS Save": -0.5,
+  "INT Save": -0.5,
+  "CHA Save": -0.5,
+  "STR Save": -0.5, 
+};
+
+const AREA_MOD = {
+  "None": 0,
+  "Line 30 ft": 0.25,
+  "Line 60 ft": 0.5,
+  "Line 100 ft": 0.75,
+  "Sphere 5 ft": 0.1,
+  "Sphere 10 ft": 0.2,
+  "Sphere 15 ft": 0.3,
+  "Sphere 20 ft": 0.5,
+  "Sphere 30 ft": 0.4,
+  "Sphere 40 ft": 0.7,
+  "Sphere 60 ft": 0.9,
+  "Sphere 5 miles": 3,
+  "Cone 15 ft": 0.3,
+  "Cone 30 ft": 0.6,
+  "Cone 60 ft": 0.9,
+  "Cylinder 5 ft": 0.1,
+  "Cylinder 10 ft": 0.2,
+  "Cylinder 20 ft": 0.4,
+  "Cylinder 30 ft": 0.6,
+  "Cylinder 40 ft": 0.8,
+  "Cylinder 50 ft": 0.9,
+  "Cylinder 60 ft": 1,
+  "Square 5 ft": 0.1,
+  "Square 10 ft": 0.2,
+  "Square 20 ft": 0.4,
+  "Cube 1 ft": 0,
+  "Cube 5 ft": 0.1,
+  "Cube 10 ft": 0.2,
+  "Cube 15 ft": 0.25,
+  "Cube 20 ft": 0.3,
+  "Cube 30 ft": 0.35,
+  "Cube 40 ft": 0.4,
+  "Cube 60 ft": 0.5,
+  "Cube 100 ft": 0.6,
+  "Cube 150 ft": 0.7,
+  "Cube 200 ft": 0.8,
+  "2,500 ft^2": 0.95,
+  "40,000 ft^2": 1,
+  "Square 1 mile": 1
+};
+
+
+const BASE_POWER_BY_LEVEL = {
+  0: 6,
+  1: 15,
+  2: 20,
+  3: 26,
+  4: 40,
+  5: 47,
+  6: 65,
+  7: 75,
+  8: 85,
+  9: 108,
+  10: 120,
+  11: 133,
+};
+
+export function calculatePower(spell) {
+  const {
+    level,
+    materialCost,
+    materialType,
+    material,
+    ritual,
+    verbal,
+    somatic,
+    material: hasMaterial,
+    area,
+    targets,
+    hasRestriction,
+    effects,
+    range,
+    duration,
+    avgRoll,
+    castingTime,
+    attackSave,
+    concentration,
+    upcastable,
+  } = spell;
+
+  const basePower = BASE_POWER_BY_LEVEL[level] ?? 0;
+  const numbericLevel = Number(level);
+
+  // Material cost penalty
+let materialPenalty = 0;
+if (material && materialCost > 0) {
+  let rawPenalty = 0;
+  if (materialType === "Costed") {
+    rawPenalty = materialCost / 2;
+  } else if (materialType === "Consumed") {
+    rawPenalty = materialCost;
+  } else {
+    rawPenalty = 0;
+  }
+
+  materialPenalty = Math.min(50, rawPenalty / 2);
+}
+
+
+  // Ritual bonus
+  let ritualBonus = 0;
+  if (ritual && numbericLevel >= 1 && numbericLevel < 7) {
+    const nextLevelPower = BASE_POWER_BY_LEVEL[numbericLevel + 1] ?? 0;
+    ritualBonus = nextLevelPower * 0.1;
+  }
+
+  // Component bonus
+  if (!verbal && !somatic && !hasMaterial) return "Error: No components selected";
+  const componentBonus =
+    (verbal ? COMPONENT_BONUS.verbal : 0) +
+    (somatic ? COMPONENT_BONUS.somatic : 0) +
+    (hasMaterial ? COMPONENT_BONUS.material : 0);
+
+  // Upcast bonus
+  const upcastBonus = upcastable ? numbericLevel + 1 : 0;
+
+  // Target modifier
+  let targetBonus = 0;
+  if (targets < 0) {
+    targetBonus = BASE_POWER_BY_LEVEL[numbericLevel + 2] / (numbericLevel + 0.5);
+  } else if (targets === 1) {
+    targetBonus = 0;
+  } else if (targets > 1) {
+    targetBonus = (targets * basePower) / (numbericLevel * numbericLevel + 1);
+  }
+
+  // Restriction penalty
+  const restrictionPenalty = hasRestriction ? basePower / 5 : 0;
+
+  // Concentration penalty
+  const concentrationPenalty = spell.concentration ? basePower / 4 : 0;
+
+  // Linear value before multiplier
+  const baseTotal =
+    basePower -
+    materialPenalty -
+    concentrationPenalty +
+    ritualBonus +
+    componentBonus +
+    upcastBonus +
+    targetBonus -
+    restrictionPenalty;
+
+  // Multiplicative modifier sum
+  const castMod = CASTING_MOD[castingTime] ?? 0;
+  const rangeMod = RANGE_MOD[range] ?? 0;
+  const durationMod = DURATION_MOD[duration] ?? 0;
+  const saveMod = ATTACK_SAVE_MOD[attackSave] ?? 0;
+  const areaMod = AREA_MOD[area] ?? 0;
+
+  const multiplier = castMod + rangeMod + durationMod + saveMod + areaMod;
+
+  // Effect bonus: (EffectPower * Level or 0.5 if Level 0)
+  // Calculate total effect power with scaling multiplier
+
+const effectLevel = level === 0 ? 0.5 : level;
+const effectPowers = effects.map((e) => (EFFECT_POWER[e] ?? 0) * effectLevel);
+const effectPowerTotal = effectPowers.reduce((sum, v) => sum + v, 0);
+
+let effectMultiplier = 1;
+const effectsUsed = effects.filter(e => e !== "None").length;
+if (effectsUsed === 2) effectMultiplier = 0.7;
+if (effectsUsed === 3) effectMultiplier = 0.5;
+
+const scaledEffectBonus = effectPowerTotal * effectMultiplier;
+
+  const rollBonus = Number(avgRoll) || 0;
+
+  // Final Power
+  const finalPower = Math.round(baseTotal * (1.5 + multiplier) + scaledEffectBonus + rollBonus);
+
+  return finalPower;
+}
