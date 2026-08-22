@@ -1,0 +1,10 @@
+Dataset examples are built from SpellCrafter JSON spells.
+
+Homebrew spells may be used as direct creative training examples when they are valid, normalized, and table-ready. They may also be rewritten into variants.
+
+Official spells are used mainly to teach structure, balance, field consistency, action economy, range, duration, class fit, and spell-writing style. Official examples must be transformed before they become assistant outputs: rename the spell, rewrite the description, and avoid reproducing official names or official descriptions verbatim.
+
+Each training row is chat JSONL:
+{"messages":[{"role":"system","content":"..."},{"role":"user","content":"..."},{"role":"assistant","content":"..."}]}
+
+The assistant content is a JSON string containing exactly one SpellCrafter spell object.

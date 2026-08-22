@@ -1,0 +1,6 @@
+{
+  "ollamaModelName": "spellcrafter",
+  "modelfile": "/Users/owner/spell-crafter-polished/ml/output/Modelfile.spellcrafter",
+  "createCommand": "ollama create spellcrafter -f /Users/owner/spell-crafter-polished/ml/output/Modelfile.spellcrafter",
+  "adapterNote": "Ollama does not load Hugging Face LoRA adapters directly. Merge the adapter into the base model and quantize/export to GGUF with llama.cpp, then set ollama.ggufPath in config.json and rerun this script. Until then, this Modelfile creates a prompt-tuned fallback model from ollama.baseModel."
+}

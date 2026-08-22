@@ -1,0 +1,32 @@
+{
+  "officialCorpusDir": "./data/official-spells/json",
+  "homebrewCorpusDir": "./data/homebrew",
+  "outputDir": "./ml/output",
+  "trainFile": "./ml/output/spellcrafter_train.jsonl",
+  "validFile": "./ml/output/spellcrafter_valid.jsonl",
+  "modelBase": "mistralai/Mistral-7B-Instruct-v0.3",
+  "ollamaModelName": "spellcrafter",
+  "maxExamplesPerSpell": 3,
+  "officialMode": "transform",
+  "homebrewMode": "direct_and_transform",
+  "validationRatio": 0.08,
+  "randomSeed": 1337,
+  "training": {
+    "epochs": 2,
+    "learningRate": 0.0002,
+    "batchSize": 1,
+    "gradientAccumulation": 8,
+    "maxSequenceLength": 2048,
+    "quantization": "4bit",
+    "outputDir": "./ml/output/spellcrafter-lora",
+    "loggingSteps": 10,
+    "saveSteps": 100
+  },
+  "ollama": {
+    "baseModel": "mistral",
+    "ggufPath": "",
+    "temperature": 0.8,
+    "topP": 0.9,
+    "numCtx": 4096
+  }
+}

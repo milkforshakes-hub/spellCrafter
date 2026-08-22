@@ -1,0 +1,8 @@
+{
+  "trainExamples": 9580,
+  "validExamples": 833,
+  "officialExamples": 2691,
+  "homebrewExamples": 7722,
+  "quarantined": 0,
+  "quarantineFile": "/Users/owner/spell-crafter-polished/ml/output/dataset_quarantine.json"
+}

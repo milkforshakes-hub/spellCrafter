@@ -1,0 +1,1602 @@
+{
+  "official": {
+    "label": "official",
+    "root": "/Users/owner/spell-crafter-polished/data/official-spells/json",
+    "jsonFiles": 897,
+    "loaded": 897,
+    "malformed": [],
+    "fieldCoverage": {
+      "name": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "author": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "level": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "school": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "classes": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "effects": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "castingTime": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "range": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "duration": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "area": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "concentration": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "ritual": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "damageSpell": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "verbal": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "somatic": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "material": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "materialText": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "materialType": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "materialCost": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "attackSave": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "diceValue": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "avgRoll": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "targets": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "upcastable": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "upcastText": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "hasRestriction": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "restrictionText": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "description": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "version": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "themes": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "emotionalTone": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "sourceType": {
+        "count": 897,
+        "percent": 100.0
+      },
+      "official": {
+        "count": 897,
+        "percent": 100.0
+      }
+    },
+    "likelyDuplicateNames": [
+      {
+        "name": "acid splash",
+        "count": 2
+      },
+      {
+        "name": "aid",
+        "count": 2
+      },
+      {
+        "name": "alarm",
+        "count": 2
+      },
+      {
+        "name": "alter self",
+        "count": 2
+      },
+      {
+        "name": "animal friendship",
+        "count": 2
+      },
+      {
+        "name": "animal messenger",
+        "count": 2
+      },
+      {
+        "name": "animal shapes",
+        "count": 2
+      },
+      {
+        "name": "animate dead",
+        "count": 2
+      },
+      {
+        "name": "animate objects",
+        "count": 2
+      },
+      {
+        "name": "antilife shell",
+        "count": 2
+      },
+      {
+        "name": "antimagic field",
+        "count": 2
+      },
+      {
+        "name": "antipathy/sympathy",
+        "count": 2
+      },
+      {
+        "name": "arcane eye",
+        "count": 2
+      },
+      {
+        "name": "arcane gate",
+        "count": 2
+      },
+      {
+        "name": "arcane lock",
+        "count": 2
+      },
+      {
+        "name": "armor of agathys",
+        "count": 2
+      },
+      {
+        "name": "arms of hadar",
+        "count": 2
+      },
+      {
+        "name": "astral projection",
+        "count": 2
+      },
+      {
+        "name": "augury",
+        "count": 2
+      },
+      {
+        "name": "aura of life",
+        "count": 2
+      },
+      {
+        "name": "aura of purity",
+        "count": 2
+      },
+      {
+        "name": "aura of vitality",
+        "count": 2
+      },
+      {
+        "name": "awaken",
+        "count": 2
+      },
+      {
+        "name": "bane",
+        "count": 2
+      },
+      {
+        "name": "banishing smite",
+        "count": 2
+      },
+      {
+        "name": "banishment",
+        "count": 2
+      },
+      {
+        "name": "barkskin",
+        "count": 2
+      },
+      {
+        "name": "beacon of hope",
+        "count": 2
+      },
+      {
+        "name": "beast sense",
+        "count": 2
+      },
+      {
+        "name": "bestow curse",
+        "count": 2
+      },
+      {
+        "name": "bigby's hand",
+        "count": 2
+      },
+      {
+        "name": "blade barrier",
+        "count": 2
+      },
+      {
+        "name": "blade ward",
+        "count": 2
+      },
+      {
+        "name": "bless",
+        "count": 2
+      },
+      {
+        "name": "blight",
+        "count": 2
+      },
+      {
+        "name": "blinding smite",
+        "count": 2
+      },
+      {
+        "name": "blindness/deafness",
+        "count": 2
+      },
+      {
+        "name": "blink",
+        "count": 2
+      },
+      {
+        "name": "blur",
+        "count": 2
+      },
+      {
+        "name": "burning hands",
+        "count": 2
+      },
+      {
+        "name": "call lightning",
+        "count": 2
+      },
+      {
+        "name": "calm emotions",
+        "count": 2
+      },
+      {
+        "name": "chain lightning",
+        "count": 2
+      },
+      {
+        "name": "charm monster",
+        "count": 2
+      },
+      {
+        "name": "charm person",
+        "count": 2
+      },
+      {
+        "name": "chill touch",
+        "count": 2
+      },
+      {
+        "name": "chromatic orb",
+        "count": 2
+      },
+      {
+        "name": "circle of death",
+        "count": 2
+      },
+      {
+        "name": "circle of power",
+        "count": 2
+      },
+      {
+        "name": "clairvoyance",
+        "count": 2
+      },
+      {
+        "name": "clone",
+        "count": 2
+      },
+      {
+        "name": "cloud of daggers",
+        "count": 2
+      },
+      {
+        "name": "cloudkill",
+        "count": 2
+      },
+      {
+        "name": "color spray",
+        "count": 2
+      },
+      {
+        "name": "command",
+        "count": 2
+      },
+      {
+        "name": "commune",
+        "count": 2
+      },
+      {
+        "name": "commune with nature",
+        "count": 2
+      },
+      {
+        "name": "compelled duel",
+        "count": 2
+      },
+      {
+        "name": "comprehend languages",
+        "count": 2
+      },
+      {
+        "name": "compulsion",
+        "count": 2
+      },
+      {
+        "name": "cone of cold",
+        "count": 2
+      },
+      {
+        "name": "confusion",
+        "count": 2
+      },
+      {
+        "name": "conjure animals",
+        "count": 2
+      },
+      {
+        "name": "conjure barrage",
+        "count": 2
+      },
+      {
+        "name": "conjure celestial",
+        "count": 2
+      },
+      {
+        "name": "conjure elemental",
+        "count": 2
+      },
+      {
+        "name": "conjure fey",
+        "count": 2
+      },
+      {
+        "name": "conjure minor elementals",
+        "count": 2
+      },
+      {
+        "name": "conjure volley",
+        "count": 2
+      },
+      {
+        "name": "conjure woodland beings",
+        "count": 2
+      },
+      {
+        "name": "contact other plane",
+        "count": 2
+      },
+      {
+        "name": "contagion",
+        "count": 2
+      },
+      {
+        "name": "contingency",
+        "count": 2
+      },
+      {
+        "name": "continual flame",
+        "count": 2
+      },
+      {
+        "name": "control water",
+        "count": 2
+      },
+      {
+        "name": "control weather",
+        "count": 2
+      },
+      {
+        "name": "cordon of arrows",
+        "count": 2
+      },
+      {
+        "name": "counterspell",
+        "count": 2
+      },
+      {
+        "name": "create food and water",
+        "count": 2
+      },
+      {
+        "name": "create or destroy water",
+        "count": 2
+      },
+      {
+        "name": "create undead",
+        "count": 2
+      },
+      {
+        "name": "creation",
+        "count": 2
+      },
+      {
+        "name": "crown of madness",
+        "count": 2
+      },
+      {
+        "name": "crusader's mantle",
+        "count": 2
+      },
+      {
+        "name": "cure wounds",
+        "count": 2
+      },
+      {
+        "name": "dancing lights",
+        "count": 2
+      },
+      {
+        "name": "darkness",
+        "count": 2
+      },
+      {
+        "name": "darkvision",
+        "count": 2
+      },
+      {
+        "name": "daylight",
+        "count": 2
+      },
+      {
+        "name": "death ward",
+        "count": 2
+      },
+      {
+        "name": "delayed blast fireball",
+        "count": 2
+      },
+      {
+        "name": "demiplane",
+        "count": 2
+      },
+      {
+        "name": "destructive wave",
+        "count": 2
+      },
+      {
+        "name": "detect evil and good",
+        "count": 2
+      },
+      {
+        "name": "detect magic",
+        "count": 2
+      },
+      {
+        "name": "detect poison and disease",
+        "count": 2
+      },
+      {
+        "name": "detect thoughts",
+        "count": 2
+      },
+      {
+        "name": "dimension door",
+        "count": 2
+      },
+      {
+        "name": "disguise self",
+        "count": 2
+      },
+      {
+        "name": "disintegrate",
+        "count": 2
+      },
+      {
+        "name": "dispel evil and good",
+        "count": 2
+      },
+      {
+        "name": "dispel magic",
+        "count": 2
+      },
+      {
+        "name": "dissonant whispers",
+        "count": 2
+      },
+      {
+        "name": "divination",
+        "count": 2
+      },
+      {
+        "name": "divine favor",
+        "count": 2
+      },
+      {
+        "name": "divine word",
+        "count": 2
+      },
+      {
+        "name": "dominate beast",
+        "count": 2
+      },
+      {
+        "name": "dominate monster",
+        "count": 2
+      },
+      {
+        "name": "dominate person",
+        "count": 2
+      },
+      {
+        "name": "dragon's breath",
+        "count": 2
+      },
+      {
+        "name": "drawmij's instant summons",
+        "count": 2
+      },
+      {
+        "name": "dream",
+        "count": 2
+      },
+      {
+        "name": "druidcraft",
+        "count": 2
+      },
+      {
+        "name": "earthquake",
+        "count": 2
+      },
+      {
+        "name": "eldritch blast",
+        "count": 2
+      },
+      {
+        "name": "elemental weapon",
+        "count": 2
+      },
+      {
+        "name": "enhance ability",
+        "count": 2
+      },
+      {
+        "name": "enlarge/reduce",
+        "count": 2
+      },
+      {
+        "name": "ensnaring strike",
+        "count": 2
+      },
+      {
+        "name": "entangle",
+        "count": 2
+      },
+      {
+        "name": "enthrall",
+        "count": 2
+      },
+      {
+        "name": "etherealness",
+        "count": 2
+      },
+      {
+        "name": "evard's black tentacles",
+        "count": 2
+      },
+      {
+        "name": "expeditious retreat",
+        "count": 2
+      },
+      {
+        "name": "eyebite",
+        "count": 2
+      },
+      {
+        "name": "fabricate",
+        "count": 2
+      },
+      {
+        "name": "faerie fire",
+        "count": 2
+      },
+      {
+        "name": "false life",
+        "count": 2
+      },
+      {
+        "name": "fear",
+        "count": 2
+      },
+      {
+        "name": "feather fall",
+        "count": 2
+      },
+      {
+        "name": "feign death",
+        "count": 2
+      },
+      {
+        "name": "find familiar",
+        "count": 2
+      },
+      {
+        "name": "find steed",
+        "count": 2
+      },
+      {
+        "name": "find the path",
+        "count": 2
+      },
+      {
+        "name": "find traps",
+        "count": 2
+      },
+      {
+        "name": "finger of death",
+        "count": 2
+      },
+      {
+        "name": "fire bolt",
+        "count": 2
+      },
+      {
+        "name": "fire shield",
+        "count": 2
+      },
+      {
+        "name": "fire storm",
+        "count": 2
+      },
+      {
+        "name": "fireball",
+        "count": 2
+      },
+      {
+        "name": "flame blade",
+        "count": 2
+      },
+      {
+        "name": "flame strike",
+        "count": 2
+      },
+      {
+        "name": "flaming sphere",
+        "count": 2
+      },
+      {
+        "name": "flesh to stone",
+        "count": 2
+      },
+      {
+        "name": "fly",
+        "count": 2
+      },
+      {
+        "name": "fog cloud",
+        "count": 2
+      },
+      {
+        "name": "forbiddance",
+        "count": 2
+      },
+      {
+        "name": "forcecage",
+        "count": 2
+      },
+      {
+        "name": "foresight",
+        "count": 2
+      },
+      {
+        "name": "freedom of movement",
+        "count": 2
+      },
+      {
+        "name": "friends",
+        "count": 2
+      },
+      {
+        "name": "gaseous form",
+        "count": 2
+      },
+      {
+        "name": "gate",
+        "count": 2
+      },
+      {
+        "name": "geas",
+        "count": 2
+      },
+      {
+        "name": "gentle repose",
+        "count": 2
+      },
+      {
+        "name": "giant insect",
+        "count": 2
+      },
+      {
+        "name": "glibness",
+        "count": 2
+      },
+      {
+        "name": "globe of invulnerability",
+        "count": 2
+      },
+      {
+        "name": "glyph of warding",
+        "count": 2
+      },
+      {
+        "name": "goodberry",
+        "count": 2
+      },
+      {
+        "name": "grasping vine",
+        "count": 2
+      },
+      {
+        "name": "grease",
+        "count": 2
+      },
+      {
+        "name": "greater invisibility",
+        "count": 2
+      },
+      {
+        "name": "greater restoration",
+        "count": 2
+      },
+      {
+        "name": "guardian of faith",
+        "count": 2
+      },
+      {
+        "name": "guards and wards",
+        "count": 2
+      },
+      {
+        "name": "guidance",
+        "count": 2
+      },
+      {
+        "name": "guiding bolt",
+        "count": 2
+      },
+      {
+        "name": "gust of wind",
+        "count": 2
+      },
+      {
+        "name": "hail of thorns",
+        "count": 2
+      },
+      {
+        "name": "hallow",
+        "count": 2
+      },
+      {
+        "name": "hallucinatory terrain",
+        "count": 2
+      },
+      {
+        "name": "harm",
+        "count": 2
+      },
+      {
+        "name": "haste",
+        "count": 2
+      },
+      {
+        "name": "heal",
+        "count": 2
+      },
+      {
+        "name": "healing word",
+        "count": 2
+      },
+      {
+        "name": "heat metal",
+        "count": 2
+      },
+      {
+        "name": "hellish rebuke",
+        "count": 2
+      },
+      {
+        "name": "heroes' feast",
+        "count": 2
+      },
+      {
+        "name": "heroism",
+        "count": 2
+      },
+      {
+        "name": "hex",
+        "count": 2
+      },
+      {
+        "name": "hold monster",
+        "count": 2
+      },
+      {
+        "name": "hold person",
+        "count": 2
+      },
+      {
+        "name": "holy aura",
+        "count": 2
+      },
+      {
+        "name": "hunger of hadar",
+        "count": 2
+      },
+      {
+        "name": "hunter's mark",
+        "count": 2
+      },
+      {
+        "name": "hypnotic pattern",
+        "count": 2
+      },
+      {
+        "name": "ice knife",
+        "count": 2
+      },
+      {
+        "name": "ice storm",
+        "count": 2
+      },
+      {
+        "name": "identify",
+        "count": 2
+      },
+      {
+        "name": "illusory script",
+        "count": 2
+      },
+      {
+        "name": "imprisonment",
+        "count": 2
+      },
+      {
+        "name": "incendiary cloud",
+        "count": 2
+      },
+      {
+        "name": "inflict wounds",
+        "count": 2
+      },
+      {
+        "name": "insect plague",
+        "count": 2
+      },
+      {
+        "name": "invisibility",
+        "count": 2
+      },
+      {
+        "name": "jump",
+        "count": 2
+      },
+      {
+        "name": "knock",
+        "count": 2
+      },
+      {
+        "name": "legend lore",
+        "count": 2
+      },
+      {
+        "name": "leomund's secret chest",
+        "count": 2
+      }
+    ],
+    "commonSchools": {
+      "Evocation": 167,
+      "Transmutation": 166,
+      "Conjuration": 163,
+      "Abjuration": 109,
+      "Enchantment": 92,
+      "Necromancy": 71,
+      "Divination": 67,
+      "Illusion": 62
+    },
+    "commonLevels": {
+      "2": 147,
+      "1": 141,
+      "3": 124,
+      "5": 109,
+      "4": 92,
+      "6": 81,
+      "0": 79,
+      "7": 48,
+      "8": 40,
+      "9": 36
+    },
+    "commonClasses": {
+      "Wizard": 580,
+      "Sorcerer": 353,
+      "Druid": 289,
+      "Bard": 281,
+      "Cleric": 234,
+      "Warlock": 211,
+      "Artificer": 175,
+      "Ranger": 118,
+      "Paladin": 99
+    },
+    "commonDamageDice": {
+      "0": 519,
+      "1d6": 39,
+      "1d8": 27,
+      "2d6": 23,
+      "2d8": 23,
+      "1d4": 18,
+      "3d6": 17,
+      "3d8": 16,
+      "1d10": 16,
+      "4d8": 11,
+      "5d8": 11,
+      "4d6": 11,
+      "2d10": 11,
+      "2d4": 10,
+      "8d8": 9,
+      "8d6": 8,
+      "d4": 7,
+      "5d10": 7,
+      "6d10": 7,
+      "4d10": 7,
+      "6d6": 6,
+      "3d10": 6,
+      "10d6": 6,
+      "4d4": 5,
+      "12d6": 5,
+      "4d12": 4,
+      "d20": 4,
+      "10d8": 4,
+      "D20": 4,
+      "1d4+1": 4,
+      "d10": 3,
+      "5d6": 3,
+      "6d8": 3,
+      "14d6": 3,
+      "1d12": 3,
+      "d8": 3,
+      "10d10": 3,
+      "1d4+4": 2,
+      "3d12": 2,
+      "10d6+40": 2,
+      "7d8+30": 2,
+      "7d10": 2,
+      "7d6": 2,
+      "20d6": 2,
+      "d6": 2,
+      "4d8+15": 2,
+      "2d12": 2,
+      "10d4": 2,
+      "7d8": 2,
+      "12d8": 1,
+      "10d12": 1,
+      "2d8+1": 1,
+      "11d8": 1,
+      "2d4+4": 1,
+      "5d12": 1,
+      "12d12": 1
+    },
+    "commonSaves": {
+      "None": 462,
+      "DEX Save": 116,
+      "WIS Save": 96,
+      "CON Save": 86,
+      "STR Save": 35,
+      "Melee Attack": 31,
+      "CHA Save": 29,
+      "Ranged Attack": 28,
+      "INT Save": 14
+    },
+    "commonRanges": {
+      "Self": 209,
+      "60 ft": 165,
+      "Touch": 158,
+      "30 ft": 118,
+      "120 ft": 86,
+      "90 ft": 54,
+      "150 ft": 31,
+      "10 ft": 25,
+      "300 ft": 15,
+      "1 mile": 7,
+      "500 ft": 6,
+      "5 ft": 6,
+      "Sight": 5,
+      "100 ft": 4,
+      "Unlimited": 4,
+      "500 miles": 2,
+      "20 ft": 1,
+      "15 ft": 1
+    },
+    "commonDurations": {
+      "Instantaneous": 262,
+      "1 Minute": 233,
+      "1 Hour": 151,
+      "10 Minutes": 105,
+      "8 Hours": 41,
+      "24 Hours": 37,
+      "Until Dispelled": 23,
+      "1 Round": 20,
+      "10 Days": 10,
+      "Until Dispelled or Triggered": 4,
+      "Special": 3,
+      "7 Days": 2,
+      "30 Days": 2,
+      "2 Hours": 2,
+      "6 Rounds": 2
+    }
+  },
+  "homebrew": {
+    "label": "homebrew",
+    "root": "/Users/owner/spell-crafter-polished/data/homebrew",
+    "jsonFiles": 1524,
+    "loaded": 1524,
+    "malformed": [],
+    "fieldCoverage": {
+      "name": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "author": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "level": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "school": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "classes": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "effects": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "castingTime": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "range": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "duration": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "area": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "concentration": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "ritual": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "damageSpell": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "verbal": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "somatic": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "material": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "materialText": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "materialType": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "materialCost": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "attackSave": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "diceValue": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "avgRoll": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "targets": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "upcastable": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "upcastText": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "hasRestriction": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "restrictionText": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "description": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "version": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "themes": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "emotionalTone": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "sourceType": {
+        "count": 1524,
+        "percent": 100.0
+      },
+      "homebrew": {
+        "count": 1524,
+        "percent": 100.0
+      }
+    },
+    "likelyDuplicateNames": [
+      {
+        "name": "absorption",
+        "count": 2
+      },
+      {
+        "name": "animal animosity",
+        "count": 2
+      },
+      {
+        "name": "arctic breath",
+        "count": 2
+      },
+      {
+        "name": "banishment",
+        "count": 2
+      },
+      {
+        "name": "bewilder",
+        "count": 2
+      },
+      {
+        "name": "chameleon",
+        "count": 3
+      },
+      {
+        "name": "cold snap",
+        "count": 3
+      },
+      {
+        "name": "dimensional anchor",
+        "count": 2
+      },
+      {
+        "name": "enervation",
+        "count": 2
+      },
+      {
+        "name": "find greater steed",
+        "count": 2
+      },
+      {
+        "name": "fireblast",
+        "count": 2
+      },
+      {
+        "name": "flickering strikes",
+        "count": 2
+      },
+      {
+        "name": "hailstones",
+        "count": 2
+      },
+      {
+        "name": "mind blast",
+        "count": 2
+      },
+      {
+        "name": "phantasmal force",
+        "count": 2
+      },
+      {
+        "name": "pyrotechnics",
+        "count": 2
+      },
+      {
+        "name": "staggering smite",
+        "count": 2
+      },
+      {
+        "name": "wall of bones",
+        "count": 3
+      },
+      {
+        "name": "aggravate person 3.5e",
+        "count": 2
+      },
+      {
+        "name": "bull's grace",
+        "count": 2
+      },
+      {
+        "name": "capture voice",
+        "count": 2
+      },
+      {
+        "name": "cows of chaos",
+        "count": 2
+      },
+      {
+        "name": "crushing cave",
+        "count": 2
+      },
+      {
+        "name": "hold my beer",
+        "count": 2
+      },
+      {
+        "name": "lighter",
+        "count": 2
+      },
+      {
+        "name": "nonlinear perception",
+        "count": 3
+      },
+      {
+        "name": "religious befuddlement",
+        "count": 2
+      },
+      {
+        "name": "turn unthread",
+        "count": 2
+      },
+      {
+        "name": "write magic",
+        "count": 2
+      },
+      {
+        "name": "dazzle",
+        "count": 2
+      },
+      {
+        "name": "incinerate",
+        "count": 2
+      },
+      {
+        "name": "tremorsense",
+        "count": 2
+      },
+      {
+        "name": "negative energy field",
+        "count": 2
+      },
+      {
+        "name": "rejuvenation",
+        "count": 2
+      },
+      {
+        "name": "bone spear",
+        "count": 2
+      },
+      {
+        "name": "conjure weapon",
+        "count": 2
+      },
+      {
+        "name": "deepen shadows",
+        "count": 2
+      },
+      {
+        "name": "glacial axe",
+        "count": 2
+      },
+      {
+        "name": "death ray",
+        "count": 2
+      },
+      {
+        "name": "earth leash",
+        "count": 2
+      },
+      {
+        "name": "form of fire",
+        "count": 2
+      },
+      {
+        "name": "form of ice",
+        "count": 2
+      },
+      {
+        "name": "form of stone",
+        "count": 2
+      },
+      {
+        "name": "form of water",
+        "count": 2
+      },
+      {
+        "name": "form of wind",
+        "count": 2
+      },
+      {
+        "name": "inflict disease",
+        "count": 2
+      },
+      {
+        "name": "mass freeze",
+        "count": 2
+      },
+      {
+        "name": "minor drain",
+        "count": 2
+      },
+      {
+        "name": "warding sigil",
+        "count": 2
+      },
+      {
+        "name": "withering field",
+        "count": 2
+      }
+    ],
+    "commonSchools": {
+      "Evocation": 324,
+      "Transmutation": 314,
+      "Conjuration": 280,
+      "Necromancy": 170,
+      "Abjuration": 138,
+      "Enchantment": 122,
+      "Divination": 95,
+      "Illusion": 81
+    },
+    "commonLevels": {
+      "2": 245,
+      "3": 214,
+      "1": 198,
+      "0": 197,
+      "4": 189,
+      "5": 188,
+      "6": 113,
+      "7": 74,
+      "8": 57,
+      "9": 49
+    },
+    "commonClasses": {
+      "Wizard": 1434,
+      "Sorcerer": 141,
+      "Druid": 95,
+      "Cleric": 83,
+      "Warlock": 64,
+      "Bard": 56,
+      "Ranger": 42,
+      "Artificer": 24,
+      "Paladin": 17
+    },
+    "commonDamageDice": {
+      "0": 720,
+      "1d6": 76,
+      "2d6": 55,
+      "1d8": 52,
+      "1d4": 51,
+      "3d6": 46,
+      "4d8": 39,
+      "2d8": 35,
+      "3d8": 31,
+      "4d6": 29,
+      "1d10": 25,
+      "2d10": 21,
+      "2d4": 21,
+      "6d6": 20,
+      "3d10": 18,
+      "6d8": 18,
+      "5d10": 14,
+      "1d12": 14,
+      "8d6": 13,
+      "4d10": 13,
+      "5d6": 13,
+      "d4": 12,
+      "8d8": 12,
+      "5d8": 11,
+      "6d10": 9,
+      "d20": 9,
+      "4d12": 8,
+      "10d8": 8,
+      "10d6": 8,
+      "3d4": 7,
+      "8d4": 6,
+      "d10": 6,
+      "d8": 6,
+      "1d4+1": 6,
+      "4d4": 5,
+      "3d12": 5,
+      "12d8": 4,
+      "d6": 4,
+      "2d12": 4,
+      "d12": 4,
+      "1d4+4": 3,
+      "8d10": 3,
+      "7d10": 3,
+      "14d6": 3,
+      "7d6": 3,
+      "5d12": 3,
+      "5d4": 3,
+      "12d6": 2,
+      "10d10": 2,
+      "5d8+15": 2,
+      "12d10": 2,
+      "12d4": 2,
+      "9d8": 2,
+      "8d10+30": 2,
+      "2d8+1": 1,
+      "6d8+6": 1,
+      "10d6+40": 1,
+      "7d8+30": 1,
+      "4d4+4": 1,
+      "20d6": 1,
+      "4d8+15": 1,
+      "2d6+2": 1,
+      "1d10+4": 1,
+      "1d12+3": 1,
+      "10d4": 1,
+      "7d8": 1,
+      "2d20": 1,
+      "1d8+10": 1,
+      "1d10+15": 1,
+      "1D8": 1,
+      "2d4+20": 1,
+      "1d4+6": 1,
+      "1d8+2": 1,
+      "4d10+20": 1,
+      "25d8": 1,
+      "22d12": 1,
+      "16d6": 1,
+      "9d4": 1,
+      "8d8+50": 1,
+      "18d8": 1,
+      "1d20": 1,
+      "6d4": 1,
+      "5d8+10": 1,
+      "7d4": 1,
+      "1d6+3": 1
+    },
+    "commonSaves": {
+      "None": 877,
+      "CON Save": 187,
+      "DEX Save": 172,
+      "Melee Attack": 77,
+      "STR Save": 74,
+      "Ranged Attack": 65,
+      "WIS Save": 42,
+      "INT Save": 23,
+      "CHA Save": 7
+    },
+    "commonRanges": {
+      "Self": 399,
+      "Touch": 255,
+      "60 ft": 254,
+      "30 ft": 246,
+      "120 ft": 124,
+      "90 ft": 72,
+      "10 ft": 42,
+      "300 ft": 30,
+      "150 ft": 28,
+      "100 ft": 17,
+      "5 ft": 15,
+      "15 ft": 14,
+      "Sight": 8,
+      "500 ft": 7,
+      "200 ft": 5,
+      "40 ft": 2,
+      "20 ft": 2,
+      "50 ft": 2,
+      "1 mile": 1,
+      "1000 ft": 1
+    },
+    "commonDurations": {
+      "Instantaneous": 458,
+      "1 Minute": 357,
+      "1 Hour": 194,
+      "10 Minutes": 174,
+      "Special": 138,
+      "1 Round": 70,
+      "8 Hours": 45,
+      "24 Hours": 42,
+      "Until Dispelled": 20,
+      "30 Days": 8,
+      "10 Days": 7,
+      "7 Days": 3,
+      "Until Dispelled or Triggered": 3,
+      "6 Rounds": 3,
+      "2 Hours": 2
+    }
+  },
+  "totals": {
+    "jsonFiles": 2421,
+    "loaded": 2421,
+    "malformed": 0
+  }
+}

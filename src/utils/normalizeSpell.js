@@ -1,353 +1,293 @@
-// File: src/utils/normalizeSpell.js
-
 import {
-    SPELL_SCHOOLS,
-    CASTING_TIMES,
-    RANGES,
-    DURATIONS,
-    AREAS,
-    EFFECT_OPTIONS,
-    ATTACK_SAVE_TYPES,
-    MATERIAL_TYPES,
-  } from "./constants";
-  
-  function closestMatch(value, options) {
-    if (!value || typeof value !== "string") return options[0];
-    const match = options.find(opt => value.toLowerCase().includes(opt.toLowerCase()));
-    return match || options[0];
-  }
-  
-  export function normalizeSpell(spell) {
-    return {
-      ...spell,
-      school: closestMatch(spell.school, SPELL_SCHOOLS),
-      castingTime: closestMatch(spell.castingTime, CASTING_TIMES),
-      range: normalizeRange(spell.range),
-      duration: normalizeDuration(spell.duration),
-      concentration: spell.duration?.toLowerCase().includes("concentration") || false,
-      area: normalizeArea(spell.area),
-      attackSave: normalizeAttackSave(spell.attackSave),
-      materialType: normalizeMaterialType(spell.materialType, spell.materialCost),
-      effects: normalizeEffects(spell.effects),
-      avgRoll: normalizeNumber(spell.avgRoll),
-      materialCost: normalizeMaterialCost(spell.materialCost),
-      targets: normalizeTargets(spell.targets),
-      damageSpell: normalizeDamageFlag(spell),
-      classes: Array.isArray(spell.classes) && spell.classes.length ? spell.classes : ["Wizard"],
-    };
-  }
+  AREAS,
+  ATTACK_SAVE_TYPES,
+  CASTING_TIMES,
+  CLASS_OPTIONS,
+  DAMAGE_EFFECTS,
+  DEFAULT_SPELL,
+  DURATIONS,
+  EFFECT_OPTIONS,
+  EMOTIONAL_TONES,
+  MATERIAL_TYPES,
+  RANGES,
+  SOURCE_TYPES,
+  SPELL_SCHOOLS,
+  THEME_OPTIONS,
+} from "./constants.js";
 
-  function normalizeEffects(rawEffects) {
- 
-    const effectMap = [
-        { keywords: ["poison", "toxic"], tag: "Poison" },
-        { keywords: ["thunder", "boom"], tag: "Thunder" },
-        { keywords: ["psychic", "mind"], tag: "Psychic" },
-        { keywords: ["radiant", "light", "holy", "radient"], tag: "Radiant" },
-        { keywords: ["bludgeoning", "smash"], tag: "Bludgeoning" },
-        { keywords: ["fire", "flame", "burn"], tag: "Fire" },
-        { keywords: ["force", "push"], tag: "Force" },
-        { keywords: ["acid", "corrode"], tag: "Acid" },
-        { keywords: ["necrotic", "undeath"], tag: "Necrotic" },
-        { keywords: ["cold", "freeze", "ice"], tag: "Cold" },
-        { keywords: ["lightning", "shock"], tag: "Lightning" },
-        { keywords: ["piercing", "stab"], tag: "Piercing" },
-        { keywords: ["slashing", "cut"], tag: "Slashing" },
-      { keywords: ["combat", "damage", "deals", "harm"], tag: "Combat" },
-      { keywords: ["control", "restrict", "inhibit", "suppress", "disorient", "impede"], tag: "Control" },
-      { keywords: ["utility", "useful", "tool", "detect", "reveal", "scan", "highlight", "see"], tag: "Utility" },
-      { keywords: ["creation", "create", "conjure", "manifest", "generate"], tag: "Creation" },
-      { keywords: ["weaken", "debuff", "reduce", "penalty", "confusion", "disadvantage"], tag: "Debuff" },
-      { keywords: ["buff", "enhance", "bonus", "advantage", "extra action", "increases speed"], tag: "Buff" },
-      { keywords: ["communication", "talk", "speak", "communicate", "voice", "whispers"], tag: "Communication" },
-      { keywords: ["healing", "heal", "restores", "regenerate", "mend"], tag: "Healing" },
-      { keywords: ["foreknowledge", "know", "divine", "foretell", "future", "past", "read"], tag: "Foreknowledge" },
-      { keywords: ["detection", "detect", "sense", "track", "locate"], tag: "Detection" },
-      { keywords: ["charmed", "charm", "friendly"], tag: "Charmed" },
-      { keywords: ["frightened", "frighten", "fear", "terrify"], tag: "Frightened" },
-      { keywords: ["blind", "blinded"], tag: "Blinded" },
-      { keywords: ["prone", "knock down"], tag: "Prone" },
-      { keywords: ["social", "emotional"], tag: "Social" },
-      { keywords: ["shapechanging", "change form", "transform", "morph", "shapeshift"], tag: "Shapechanging" },
-      { keywords: ["deception", "lie", "trick", "deceive", "fake", "illusion"], tag: "Deception" },
-      { keywords: ["restrained", "restrain", "immobilize", "snare"], tag: "Restrained" },
-      { keywords: ["movement", "move", "mobility", "teleport", "blink", "speed"], tag: "Movement" },
-      { keywords: ["exploration", "explore", "travel", "navigate", "search"], tag: "Exploration" },
-      { keywords: ["summoning", "summon", "conjure"], tag: "Summoning" },
-      { keywords: ["warding", "protective", "protect", "shield", "ward", "defend"], tag: "Warding" },
-      { keywords: ["unconscious", "sleep", "knock out", "faint"], tag: "Unconscious" },
-      { keywords: ["dunamancy", "gravity", "echo", "time"], tag: "Dunamancy" },
-      { keywords: ["invisible", "invisibility", "hidden", "stealth"], tag: "Invisible" },
-      { keywords: ["teleport", "teleportation"], tag: "Teleportation" },
-      { keywords: ["deafen", "mute", "deafened"], tag: "Deafened" },
-      { keywords: ["banish", "dismiss", "banishment"], tag: "Banishment" },
-      { keywords: ["negate", "cancel", "nullify", "negation"], tag: "Negation" },
-      { keywords: ["environment", "weather", "storm", "natural", "darkness", "light", "terrain"], tag: "Environment" },
-      { keywords: ["stun", "daze", "stunned"], tag: "Stunned" },
-      { keywords: ["petrify", "stone", "petrified"], tag: "Petrified" },
-      { keywords: ["paralyze", "paralyzed"], tag: "Paralyzed" },
-    ];
-  
-    const found = new Set();
-  // Handle string-based input (e.g., "Teleportation, Invisible, None")
-  let sources = [];
+function normalizeToken(value) {
+  return String(value ?? "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, " ");
+}
 
-  // Split string by commas and "and", including Oxford comma edge cases
-  if (typeof rawEffects === "string") {
-    sources = rawEffects.split(/\s*,\s*|\s+and\s+/i);
-  } else if (Array.isArray(rawEffects)) {
-    sources = rawEffects;
-  } else {
-    sources = ["None"];
-  }
+function closestMatch(value, options, fallback = options[0]) {
+  const lower = normalizeToken(value);
+  if (!lower) return fallback;
+  const exact = options.find((option) => normalizeToken(option) === lower);
+  if (exact) return exact;
+  const includes = options.find((option) => lower.includes(normalizeToken(option)) || normalizeToken(option).includes(lower));
+  return includes || fallback;
+}
 
-  for (const raw of sources) {
-    const lower = (raw || "").toLowerCase();
-    for (const { keywords, tag } of effectMap) {
-      if (keywords.some(k => lower.includes(k))) {
-        found.add(tag);
-        break;
+function uniqueKnownList(values, options, fallback = []) {
+  const rawList = Array.isArray(values) ? values : String(values || "").split(/,|\band\b/i);
+  const selected = [];
+  rawList.forEach((value) => {
+    const match = closestMatch(value, options, null);
+    if (match && !selected.includes(match)) selected.push(match);
+  });
+  return selected.length ? selected : fallback;
+}
+
+export function normalizeNumber(value) {
+  if (value === null || value === undefined || value === "-" || value === "") return 0;
+  if (typeof value === "number") return Number.isFinite(value) ? value : 0;
+
+  const str = String(value).trim().toLowerCase();
+  const validDice = [2, 4, 6, 8, 10, 12, 20, 100];
+  const terms = str.split(/[+\s]+/).filter(Boolean);
+  let total = 0;
+  let matched = false;
+
+  terms.forEach((term) => {
+    const diceMatch = term.match(/^(\d*)d(\d+)$/i);
+    if (diceMatch) {
+      const count = Number.parseInt(diceMatch[1] || "1", 10);
+      const die = Number.parseInt(diceMatch[2], 10);
+      if (validDice.includes(die)) {
+        total += ((die / 2) + 0.5) * count;
+        matched = true;
       }
+      return;
     }
-  }
 
-  const result = Array.from(found).slice(0, 3);
+    const flat = Number.parseFloat(term.replace(/[^\d.-]/g, ""));
+    if (Number.isFinite(flat)) {
+      total += flat;
+      matched = true;
+    }
+  });
+
+  if (matched) return Math.max(0, Math.round(total));
+  const fallback = Number.parseFloat(str.replace(/[^\d.-]/g, ""));
+  return Number.isFinite(fallback) ? Math.max(0, Math.round(fallback)) : 0;
+}
+
+function normalizeEffects(rawEffects) {
+  const effectMap = [
+    { keywords: ["poison", "toxic"], tag: "Poison" },
+    { keywords: ["thunder", "boom", "sonic"], tag: "Thunder" },
+    { keywords: ["psychic", "mind", "mental"], tag: "Psychic" },
+    { keywords: ["radiant", "light", "holy", "radient"], tag: "Radiant" },
+    { keywords: ["bludgeoning", "smash", "crush"], tag: "Bludgeoning" },
+    { keywords: ["fire", "flame", "burn", "ignite"], tag: "Fire" },
+    { keywords: ["force", "push", "kinetic"], tag: "Force" },
+    { keywords: ["acid", "corrode", "caustic"], tag: "Acid" },
+    { keywords: ["necrotic", "undeath", "wither"], tag: "Necrotic" },
+    { keywords: ["cold", "freeze", "ice", "frost"], tag: "Cold" },
+    { keywords: ["lightning", "shock", "electric"], tag: "Lightning" },
+    { keywords: ["piercing", "stab", "needle"], tag: "Piercing" },
+    { keywords: ["slashing", "cut", "blade"], tag: "Slashing" },
+    { keywords: ["combat", "damage", "deals", "harm", "attack"], tag: "Combat" },
+    { keywords: ["control", "restrict", "suppress", "impede"], tag: "Control" },
+    { keywords: ["utility", "tool", "detect", "reveal", "highlight"], tag: "Utility" },
+    { keywords: ["creation", "create", "manifest", "generate"], tag: "Creation" },
+    { keywords: ["weaken", "debuff", "penalty", "disadvantage"], tag: "Debuff" },
+    { keywords: ["buff", "enhance", "bonus", "advantage"], tag: "Buff" },
+    { keywords: ["communication", "talk", "speak", "whisper"], tag: "Communication" },
+    { keywords: ["healing", "heal", "restore", "mend"], tag: "Healing" },
+    { keywords: ["foreknowledge", "future", "past", "divine"], tag: "Foreknowledge" },
+    { keywords: ["detection", "sense", "track", "locate"], tag: "Detection" },
+    { keywords: ["charmed", "charm", "friendly"], tag: "Charmed" },
+    { keywords: ["frightened", "fear", "terrify"], tag: "Frightened" },
+    { keywords: ["blind", "blinded"], tag: "Blinded" },
+    { keywords: ["prone", "knock down"], tag: "Prone" },
+    { keywords: ["social", "emotional"], tag: "Social" },
+    { keywords: ["shapechanging", "transform", "shapeshift"], tag: "Shapechanging" },
+    { keywords: ["deception", "trick", "illusion"], tag: "Deception" },
+    { keywords: ["restrained", "snare", "immobilize"], tag: "Restrained" },
+    { keywords: ["movement", "teleport", "speed"], tag: "Movement" },
+    { keywords: ["exploration", "travel", "navigate"], tag: "Exploration" },
+    { keywords: ["summoning", "summon"], tag: "Summoning" },
+    { keywords: ["warding", "protect", "shield"], tag: "Warding" },
+    { keywords: ["unconscious", "sleep", "faint"], tag: "Unconscious" },
+    { keywords: ["dunamancy", "gravity", "echo", "time"], tag: "Dunamancy" },
+    { keywords: ["invisible", "invisibility", "hidden", "stealth"], tag: "Invisible" },
+    { keywords: ["banish", "dismiss"], tag: "Banishment" },
+    { keywords: ["negate", "cancel", "nullify"], tag: "Negation" },
+    { keywords: ["environment", "weather", "storm", "terrain"], tag: "Environment" },
+    { keywords: ["stun", "daze"], tag: "Stunned" },
+    { keywords: ["petrify", "stone"], tag: "Petrified" },
+    { keywords: ["paralyze", "paralyzed"], tag: "Paralyzed" },
+  ];
+
+  const rawList = Array.isArray(rawEffects) ? rawEffects : String(rawEffects || "").split(/,|\band\b/i);
+  const found = [];
+
+  rawList.forEach((raw) => {
+    const direct = closestMatch(raw, EFFECT_OPTIONS, null);
+    if (direct && direct !== "None" && !found.includes(direct)) {
+      found.push(direct);
+      return;
+    }
+
+    const lower = normalizeToken(raw);
+    const mapped = effectMap.find(({ keywords }) => keywords.some((keyword) => lower.includes(keyword)));
+    if (mapped && !found.includes(mapped.tag)) found.push(mapped.tag);
+  });
+
+  const result = found.slice(0, 3);
   while (result.length < 3) result.push("None");
   return result;
 }
-  
-  
-  function normalizeRange(value) {
-    if (!value || typeof value !== "string") return RANGES[0];
-  
-    // ✅ Early manual alias map
-    const aliasMap = {
-      "5 feet": "5 ft",
-      "10 feet": "10 ft",
-      "15 feet": "15 ft",
-      "20 feet": "20 ft",
-      "30 feet": "30 ft",
-      "40 feet": "40 ft",
-      "60 feet": "60 ft",
-      "90 feet": "90 ft",
-      "100 feet": "100 ft",
-      "120 feet": "120 ft",
-      "150 feet": "150 ft",
-      "200 feet": "200 ft",
-      "300 feet": "300 ft",
-      "500 feet": "500 ft",
-      "1000 feet": "1000 ft",
-    };
-  
-    const lower = value.toLowerCase();
-    for (let key in aliasMap) {
-      if (lower.includes(key)) {
-        return aliasMap[key];
-      }
-    }
-  
-    // ✅ Exact match fallback
-    const exact = RANGES.find(r => r.toLowerCase() === lower);
-    if (exact) return exact;
-  
-    // ✅ Extract number and find closest numeric match
-    const numberMatch = lower.match(/(\d+)/);
-    if (numberMatch) {
-      const num = parseInt(numberMatch[1]);
-  
-      const numericRanges = RANGES.map(r => {
-        const match = r.match(/(\d+)/);
-        return match ? { label: r, value: parseInt(match[1]) } : null;
-      }).filter(Boolean);
-  
-      let closest = numericRanges[0];
-      for (let r of numericRanges) {
-        if (Math.abs(r.value - num) < Math.abs(closest.value - num)) {
-          closest = r;
-        }
-      }
-  
-      return closest.label;
-    }
-  
-    // ✅ Fallback to closest textual match
-    return closestMatch(value, RANGES);
-  }
-  
-  function normalizeDuration(value) {
-    if (!value || typeof value !== "string") return DURATIONS[0];
-    const lower = value.toLowerCase();
-  
-    for (let d of DURATIONS) {
-      if (lower.includes(d.toLowerCase())) return d;
-    }
-  
-    return DURATIONS[0];
-  }
-  
 
-  function normalizeArea(value) {
-    if (!value || typeof value !== "string") return "None";
-  
-    const lower = value.toLowerCase();
-  
-    // Try to find a number (radius/diameter/size/etc.)
-    const numMatch = lower.match(/(\d+)/);
-    const size = numMatch ? parseInt(numMatch[1]) : null;
-  
-    // Shape keywords mapped to preferred shape name
-    const shapeAliases = {
-      "radius": "sphere",
-      "circle": "sphere",
-      "sphere": "sphere",
-      "cone": "cone",
-      "cube": "cube",
-      "cylinder": "cylinder",
-      "line": "line",
-      "square": "square"
-    };
-  
-    let detectedShape = null;
-    for (const [keyword, shape] of Object.entries(shapeAliases)) {
-      if (lower.includes(keyword)) {
-        detectedShape = shape;
-        break;
-      }
-    }
-  
-    // Build normalized name
-    if (detectedShape && size) {
-      const normalized = `${capitalize(detectedShape)} ${size} ft`;
-      const match = AREAS.find(a => a.toLowerCase() === normalized.toLowerCase());
-      if (match) return match;
-    }
-  
-    // Try fallback fuzzy match
-    const fallback = AREAS.find(a => lower.includes(a.toLowerCase()));
-    if (fallback) return fallback;
-  
-    return "None";
+function normalizeRange(value) {
+  const lower = normalizeToken(value);
+  if (!lower) return DEFAULT_SPELL.range;
+  const aliasMap = {
+    "15ft": "15 ft",
+    "self 15ft": "Self (15 ft)",
+    "self 60 ft ": "Self (60 ft)",
+    "unlimited range": "Unlimited",
+  };
+  if (aliasMap[lower]) return aliasMap[lower];
+  const exact = RANGES.find((range) => normalizeToken(range) === lower);
+  if (exact) return exact;
+  const feetMatch = lower.match(/(\d+)\s*(feet|foot|ft)/);
+  if (feetMatch) {
+    const num = Number.parseInt(feetMatch[1], 10);
+    const self = lower.includes("self");
+    const target = self ? `Self (${num} ft)` : `${num} ft`;
+    const match = RANGES.find((range) => normalizeToken(range) === normalizeToken(target));
+    if (match) return match;
   }
-  
-  
-  function capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-  
+  return closestMatch(value, RANGES, DEFAULT_SPELL.range);
+}
 
-  function normalizeAttackSave(value) {
-    const map = {
-      "strength": "STR Save",
-      "dexterity": "DEX Save",
-      "constitution": "CON Save",
-      "intelligence": "INT Save",
-      "wisdom": "WIS Save",
-      "charisma": "CHA Save",
-      "melee": "Melee Attack",
-      "ranged": "Ranged Attack",
-      "none": "None",
-    };
-    if (!value) return "None";
-    const lower = value.toLowerCase();
-    for (let key in map) {
-      if (lower.includes(key)) return map[key];
-    }
-    return "None";
+function normalizeDuration(value, options = {}) {
+  if (!value || typeof value !== "string") return DEFAULT_SPELL.duration;
+  const lower = normalizeToken(value).replace(/^concentration,?\s*/, "");
+  return closestMatch(lower, DURATIONS, DEFAULT_SPELL.duration);
+}
+
+function normalizeArea(value) {
+  const lower = normalizeToken(value);
+  if (!lower || lower === "none") return "None";
+  const exact = AREAS.find((area) => normalizeToken(area) === lower);
+  if (exact) return exact;
+
+  const shapeAliases = {
+    radius: "Sphere",
+    circle: "Sphere",
+    sphere: "Sphere",
+    cone: "Cone",
+    cube: "Cube",
+    cylinder: "Cylinder",
+    line: "Line",
+    square: "Square",
+  };
+  const size = lower.match(/(\d[\d,]*)/)?.[1]?.replace(/,/g, "");
+  const shape = Object.entries(shapeAliases).find(([keyword]) => lower.includes(keyword))?.[1];
+  if (shape && size) {
+    const normalized = `${shape} ${size} ft`;
+    const match = AREAS.find((area) => normalizeToken(area) === normalizeToken(normalized));
+    if (match) return match;
   }
-  
-  function normalizeMaterialType(value, cost) {
-    // Default to "Trivial" if unknown
-    let type = MATERIAL_TYPES.includes(value) ? value : MATERIAL_TYPES[0];
-  
-    // If cost is over 4gp, force it to "Costed" at minimum
-    if (normalizeNumber(cost) > 4 && type === "Trivial") {
-      type = "Costed";
-    }
-  
-    return type;
+  return closestMatch(value, AREAS, "None");
+}
+
+function normalizeAttackSave(value) {
+  const lower = normalizeToken(value);
+  const map = {
+    strength: "STR Save",
+    str: "STR Save",
+    dexterity: "DEX Save",
+    dex: "DEX Save",
+    constitution: "CON Save",
+    con: "CON Save",
+    intelligence: "INT Save",
+    int: "INT Save",
+    wisdom: "WIS Save",
+    wis: "WIS Save",
+    charisma: "CHA Save",
+    cha: "CHA Save",
+    melee: "Melee Attack",
+    ranged: "Ranged Attack",
+    none: "None",
+  };
+  for (const [keyword, normalized] of Object.entries(map)) {
+    if (lower.includes(keyword)) return normalized;
   }
-  
-  
-  export function normalizeNumber(value) {
-    if (value === null || value === undefined || value === "-" || value === "") return 0;
-  
-    if (typeof value === "number") return value;
-  
-    const str = value.toString().trim().toLowerCase();
-    const validDice = [2, 4, 6, 8, 10, 12, 20, 100];
-  
-    // Match terms like 2d6, d8, or +6
-    const terms = str.split(/[\+\s]+/).filter(Boolean);
-  
-    let total = 0;
-  
-    for (const term of terms) {
-      const diceMatch = term.match(/^(\d*)d(\d+)$/);
-      if (diceMatch) {
-        const count = parseInt(diceMatch[1] || "1", 10); // support 'd6' as '1d6'
-        const die = parseInt(diceMatch[2], 10);
-        if (!validDice.includes(die)) continue; // skip invalid die types
-        const avg = ((die / 2) + 1) * count;
-        total += avg;
-      } else {
-        const flat = parseFloat(term);
-        if (!isNaN(flat)) total += flat;
-      }
-    }
-  
-    // Fallback if nothing matched
-    if (total === 0) {
-      const fallback = parseFloat(str);
-      return isNaN(fallback) ? 0 : fallback;
-    }
-  
-    return Math.round(total);
-  }
-  
-  
-  
-  
-  function normalizeMaterialCost(value) {
-    if (typeof value === "boolean") return 0;
-    return normalizeNumber(value);
-  }
-  
-  function normalizeTargets(value) {
-    if (!value) return 0;
-    const str = value.toString().toLowerCase().trim();
-  
-    // If it mentions "all", "every", "within", "range", or "area", set to -1 (AOE)
-    const aoeIndicators = ["all", "every", "within", "range", "area"];
-    if (aoeIndicators.some(word => str.includes(word))) return -1;
-  
-    // If it mentions single target / one creature, set to 1
-    const singleIndicators = ["single", "one", "a humanoid", "a creature"];
-    if (singleIndicators.some(word => str.includes(word))) return 1;
-  
-    // Try to extract a number
-    const num = parseInt(str);
-    return isNaN(num) ? 0 : num;
-  }
-  
-  function normalizeDamageFlag(spell) {
-    const { avgRoll, effects, description } = spell;
-  
-    // Heuristic 1: If avgRoll is non-zero, it's likely a damage spell
-    if (normalizeNumber(avgRoll) > 0) return true;
-  
-    // Heuristic 2: If effects include known damage types
-    const damageKeywords = [
-      "fire", "cold", "lightning", "acid", "force", "necrotic", "radiant", "psychic",
-      "poison", "bludgeoning", "piercing", "slashing", "thunder"
-    ];
-  
-    const effectsText = Array.isArray(effects) ? effects.join(" ").toLowerCase() : "";
-    if (damageKeywords.some(type => effectsText.includes(type))) return true;
-  
-    // Heuristic 3: If the description says "deal(s)" or "takes X damage"
-    const desc = description?.toLowerCase() || "";
-    if (desc.includes("deal") || desc.includes("takes") && desc.includes("damage")) return true;
-  
-    return false;
-  }
-  
+  return closestMatch(value, ATTACK_SAVE_TYPES, "None");
+}
+
+function normalizeTargets(value) {
+  if (value === -1) return -1;
+  const str = normalizeToken(value);
+  if (!str) return 0;
+  const aoeIndicators = ["all", "every", "within", "area", "creatures in"];
+  if (aoeIndicators.some((word) => str.includes(word))) return -1;
+  const singleIndicators = ["single", "one", "a humanoid", "a creature", "target"];
+  if (singleIndicators.some((word) => str.includes(word))) return 1;
+  const numeric = Number.parseInt(str, 10);
+  return Number.isFinite(numeric) ? numeric : 0;
+}
+
+function normalizeDamageFlag(spell, avgRoll, effects) {
+  if (avgRoll > 0) return true;
+  if (effects.some((effect) => DAMAGE_EFFECTS.includes(effect))) return true;
+  const desc = normalizeToken(spell.description);
+  return desc.includes("damage") || desc.includes("deal") || desc.includes("takes");
+}
+
+export function normalizeSpell(spell = {}, options = {}) {
+  const source = { ...DEFAULT_SPELL, ...spell };
+  const level = Math.max(0, Math.min(9, Number.parseInt(source.level, 10) || 0));
+  const effects = normalizeEffects(source.effects);
+  const avgRoll = source.diceValue ? normalizeNumber(source.diceValue) : normalizeNumber(source.avgRoll);
+  const material = Boolean(source.material || normalizeNumber(source.materialCost) > 0 || source.materialText);
+  const materialType = material ? closestMatch(source.materialType, MATERIAL_TYPES, "Trivial") : "None";
+  const duration = normalizeDuration(source.duration, options);
+  const durationText = normalizeToken(source.duration);
+  const concentration = options.preserveDurationConcentration
+    ? Boolean(source.concentration)
+    : Boolean(source.concentration || durationText.includes("concentration"));
+
+  return {
+    ...source,
+    name: source.name === undefined ? "Untitled Spell" : String(source.name),
+    author: source.author === undefined ? "Unknown" : String(source.author),
+    level,
+    school: closestMatch(source.school, SPELL_SCHOOLS, DEFAULT_SPELL.school),
+    classes: uniqueKnownList(source.classes, CLASS_OPTIONS, ["Wizard"]),
+    effects,
+    castingTime: closestMatch(source.castingTime, CASTING_TIMES, DEFAULT_SPELL.castingTime),
+    range: normalizeRange(source.range),
+    duration,
+    area: normalizeArea(source.area),
+    concentration,
+    ritual: Boolean(source.ritual),
+    damageSpell: Boolean(source.damageSpell || normalizeDamageFlag(source, avgRoll, effects)),
+    verbal: Boolean(source.verbal),
+    somatic: Boolean(source.somatic),
+    material,
+    materialText: source.materialText || "",
+    materialType,
+    materialCost: normalizeNumber(source.materialCost),
+    attackSave: normalizeAttackSave(source.attackSave),
+    diceValue: source.diceValue || (avgRoll ? String(avgRoll) : "0"),
+    avgRoll,
+    targets: normalizeTargets(source.targets),
+    upcastable: Boolean(source.upcastable),
+    upcastText: source.upcastText || "",
+    hasRestriction: Boolean(source.hasRestriction || source.restrictionText),
+    restrictionText: source.restrictionText || "",
+    description: source.description || "",
+    version: source.version || "1.0.0",
+    themes: uniqueKnownList(source.themes, THEME_OPTIONS, []),
+    emotionalTone: closestMatch(source.emotionalTone, EMOTIONAL_TONES, "None"),
+    sourceType: closestMatch(source.sourceType, SOURCE_TYPES, "student"),
+  };
+}

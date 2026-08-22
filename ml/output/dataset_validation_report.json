@@ -1,0 +1,981 @@
+{
+  "files": [
+    {
+      "file": "/Users/owner/spell-crafter-polished/ml/output/spellcrafter_train.jsonl",
+      "records": 9588,
+      "errors": [
+        {
+          "line": 1105,
+          "error": "record must contain exactly three messages"
+        }
+      ],
+      "warnings": [
+        {
+          "line": 1,
+          "spell": "Magic Circle",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 1,
+          "spell": "Magic Circle",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.919
+        },
+        {
+          "line": 4,
+          "spell": "Gust of Wind",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 22,
+          "spell": "Detect Evil and Good",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 30,
+          "spell": "Hex",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 34,
+          "spell": "Ceremony",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 42,
+          "spell": "Gentle Repose",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 44,
+          "spell": "Darkvision",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 44,
+          "spell": "Darkvision",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.986
+        },
+        {
+          "line": 78,
+          "spell": "Create Food and Water",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 82,
+          "spell": "Booming Blade",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 90,
+          "spell": "Unseen Servant",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 94,
+          "spell": "Magic Stone",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 97,
+          "spell": "Catnap",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 99,
+          "spell": "Teleport",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 103,
+          "spell": "Illusory Script",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 113,
+          "spell": "Water Walk",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 116,
+          "spell": "Snare",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 116,
+          "spell": "Snare",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.959
+        },
+        {
+          "line": 117,
+          "spell": "Dissonant Whispers",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 132,
+          "spell": "Arcane Lock",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 140,
+          "spell": "Blur",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 174,
+          "spell": "Time Stop",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 175,
+          "spell": "Green-Flame Blade",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 175,
+          "spell": "Green-Flame Blade",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.919
+        },
+        {
+          "line": 203,
+          "spell": "Cone of Cold",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 203,
+          "spell": "Cone of Cold",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.973
+        },
+        {
+          "line": 204,
+          "spell": "Staggering Smite",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 209,
+          "spell": "Glibness",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 233,
+          "spell": "Dancing Lights",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 233,
+          "spell": "Dancing Lights",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.93
+        },
+        {
+          "line": 236,
+          "spell": "Psychic Scream",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 240,
+          "spell": "Poison Spray",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 240,
+          "spell": "Poison Spray",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.95
+        },
+        {
+          "line": 246,
+          "spell": "Healing Word",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 246,
+          "spell": "Healing Word",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.983
+        },
+        {
+          "line": 253,
+          "spell": "Friends",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 253,
+          "spell": "Friends",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.928
+        },
+        {
+          "line": 255,
+          "spell": "Enthrall",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 273,
+          "spell": "Lightning Arrow",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 276,
+          "spell": "Guards and Wards",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 276,
+          "spell": "Guards and Wards",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.91
+        },
+        {
+          "line": 299,
+          "spell": "Shape Water",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 301,
+          "spell": "Mirror Image",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 306,
+          "spell": "Power Word Stun",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 337,
+          "spell": "Counterspell",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 346,
+          "spell": "Conjure Elemental",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 353,
+          "spell": "Elemental Bane",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 353,
+          "spell": "Elemental Bane",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.975
+        },
+        {
+          "line": 356,
+          "spell": "Poison Spray",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 356,
+          "spell": "Poison Spray",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.95
+        },
+        {
+          "line": 362,
+          "spell": "Find Greater Steed",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 371,
+          "spell": "Mislead",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 393,
+          "spell": "Identify",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 394,
+          "spell": "Death Ward",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 394,
+          "spell": "Death Ward",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.932
+        },
+        {
+          "line": 409,
+          "spell": "Mending",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 417,
+          "spell": "Earthbind",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 417,
+          "spell": "Earthbind",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.983
+        },
+        {
+          "line": 432,
+          "spell": "Hunger of Hadar",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 440,
+          "spell": "Phantom Steed",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 443,
+          "spell": "Bless",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 443,
+          "spell": "Bless",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.98
+        },
+        {
+          "line": 449,
+          "spell": "Sword Burst",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 449,
+          "spell": "Sword Burst",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.971
+        },
+        {
+          "line": 455,
+          "spell": "Holy Weapon",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 459,
+          "spell": "Suggestion",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 489,
+          "spell": "Catnap",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 499,
+          "spell": "Zone of Truth",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 500,
+          "spell": "Control Water",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 508,
+          "spell": "Illusory Script",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 509,
+          "spell": "Finger of Death",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 532,
+          "spell": "Commune",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 533,
+          "spell": "Scatter",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 533,
+          "spell": "Scatter",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.98
+        },
+        {
+          "line": 535,
+          "spell": "Color Spray",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 535,
+          "spell": "Color Spray",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.918
+        },
+        {
+          "line": 547,
+          "spell": "Arms of Hadar",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 548,
+          "spell": "Find Familiar",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 551,
+          "spell": "Clairvoyance",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 551,
+          "spell": "Clairvoyance",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.979
+        },
+        {
+          "line": 557,
+          "spell": "Tasha's Otherworldly Guise",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 560,
+          "spell": "Investiture of Stone",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 562,
+          "spell": "Mind Spike",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 564,
+          "spell": "Message",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 564,
+          "spell": "Message",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.967
+        },
+        {
+          "line": 575,
+          "spell": "Eyebite",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 579,
+          "spell": "Reincarnate",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 583,
+          "spell": "Spirit Guardians",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 597,
+          "spell": "Summon Fey",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 598,
+          "spell": "Divine Word",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 598,
+          "spell": "Divine Word",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.902
+        },
+        {
+          "line": 616,
+          "spell": "Summon Shadowspawn",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 617,
+          "spell": "Reverse Gravity",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 627,
+          "spell": "Harm",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 629,
+          "spell": "Investiture of Stone",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 636,
+          "spell": "Banishing Smite",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 643,
+          "spell": "Foresight",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 646,
+          "spell": "Phantasmal Force",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 648,
+          "spell": "Meld into Stone",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 662,
+          "spell": "Negative Energy Flood",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 662,
+          "spell": "Negative Energy Flood",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.936
+        },
+        {
+          "line": 672,
+          "spell": "Haste",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 672,
+          "spell": "Haste",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.949
+        },
+        {
+          "line": 675,
+          "spell": "Remove Curse",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 682,
+          "spell": "Summon Aberration",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 682,
+          "spell": "Summon Aberration",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.919
+        },
+        {
+          "line": 695,
+          "spell": "Hypnotic Pattern",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 698,
+          "spell": "Cloud of Daggers",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 698,
+          "spell": "Cloud of Daggers",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.939
+        },
+        {
+          "line": 699,
+          "spell": "Polymorph",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 700,
+          "spell": "Flame Blade",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 717,
+          "spell": "Magic Missile",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 719,
+          "spell": "Magic Jar",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 723,
+          "spell": "Tongues",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 734,
+          "spell": "Astral Projection",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 750,
+          "spell": "Conjure Animals",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 754,
+          "spell": "Blade Ward",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 755,
+          "spell": "Heroism",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 773,
+          "spell": "Flame Arrows",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 777,
+          "spell": "Fly",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 777,
+          "spell": "Fly",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.989
+        },
+        {
+          "line": 780,
+          "spell": "Otiluke's Resilient Sphere",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 785,
+          "spell": "Skywrite",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 791,
+          "spell": "Soul Cage",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 795,
+          "spell": "Nondetection",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 795,
+          "spell": "Nondetection",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.98
+        },
+        {
+          "line": 796,
+          "spell": "Maze",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 800,
+          "spell": "Plane Shift",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 800,
+          "spell": "Plane Shift",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.944
+        },
+        {
+          "line": 808,
+          "spell": "Lesser Restoration",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 808,
+          "spell": "Lesser Restoration",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.986
+        },
+        {
+          "line": 809,
+          "spell": "Animal Messenger",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 813,
+          "spell": "Fog Cloud",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 813,
+          "spell": "Fog Cloud",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.95
+        },
+        {
+          "line": 825,
+          "spell": "Time Stop",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 829,
+          "spell": "Acid Splash",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 833,
+          "spell": "Leomund's Tiny Hut",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 834,
+          "spell": "Minor Illusion",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 835,
+          "spell": "Animate Objects",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 836,
+          "spell": "Cone of Cold",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 836,
+          "spell": "Cone of Cold",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.973
+        },
+        {
+          "line": 839,
+          "spell": "Detect Thoughts",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 841,
+          "spell": "Protection from Poison",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 841,
+          "spell": "Protection from Poison",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.98
+        },
+        {
+          "line": 846,
+          "spell": "Scorching Ray",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 846,
+          "spell": "Scorching Ray",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.982
+        },
+        {
+          "line": 859,
+          "spell": "Wall of Sand",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 863,
+          "spell": "Banishment",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 869,
+          "spell": "Bestow Curse",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 891,
+          "spell": "Shillelagh",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 901,
+          "spell": "Wish",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 920,
+          "spell": "Greater Restoration",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 925,
+          "spell": "Psychic Scream",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 926,
+          "spell": "Antimagic Field",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 928,
+          "spell": "Blade of Disaster",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 928,
+          "spell": "Blade of Disaster",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.94
+        },
+        {
+          "line": 932,
+          "spell": "Astral Projection",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 939,
+          "spell": "Mass Heal",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 950,
+          "spell": "Web",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 950,
+          "spell": "Web",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.966
+        },
+        {
+          "line": 952,
+          "spell": "Dominate Monster",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 971,
+          "spell": "Mordenkainen's Faithful Hound",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 972,
+          "spell": "Fly",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 972,
+          "spell": "Fly",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.989
+        },
+        {
+          "line": 990,
+          "spell": "Druidcraft",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 996,
+          "spell": "Moonbeam",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 1004,
+          "spell": "Summon Undead",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 1004,
+          "spell": "Summon Undead",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.904
+        },
+        {
+          "line": 1030,
+          "spell": "Elemental Weapon",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 1030,
+          "spell": "Elemental Weapon",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.983
+        },
+        {
+          "line": 1039,
+          "spell": "Holy Aura",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 1051,
+          "spell": "Meld into Stone",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 1069,
+          "spell": "Flame Strike",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 1071,
+          "spell": "Synaptic Static",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 1071,
+          "spell": "Synaptic Static",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.927
+        },
+        {
+          "line": 1074,
+          "spell": "Move Earth",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 1077,
+          "spell": "Magic Circle",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 1077,
+          "spell": "Magic Circle",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.919
+        },
+        {
+          "line": 1094,
+          "spell": "Bones of the Earth",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 1094,
+          "spell": "Bones of the Earth",
+          "warning": "description is suspiciously similar to an official description",
+          "similarity": 0.911
+        },
+        {
+          "line": 1101,
+          "spell": "Foresight",
+          "error": "assistant output uses an official spell name"
+        },
+        {
+          "line": 1103,
+          "spell": "Shape Water",
+          "error": "assistant output uses an official spell name"
+        }
+      ]
+    },
+    {
+      "file": "/Users/owner/spell-crafter-polished/ml/output/spellcrafter_valid.jsonl",
+      "records": 833,
+      "errors": [],
+      "warnings": []
+    }
+  ],
+  "totalRecords": 10421,
+  "totalErrors": 1,
+  "totalWarnings": 183
+}

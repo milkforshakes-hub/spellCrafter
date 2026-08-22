@@ -1,81 +1,332 @@
-// File: src/utils/constants.js
-// This file contains constants used throughout the application.
-const SPELL_SCHOOLS = [
-  "Abjuration", "Conjuration", "Divination", "Enchantment",
-  "Evocation", "Illusion", "Necromancy", "Transmutation"
+export const SPELL_SCHOOLS = [
+  "Abjuration",
+  "Conjuration",
+  "Divination",
+  "Enchantment",
+  "Evocation",
+  "Illusion",
+  "Necromancy",
+  "Transmutation",
+  "Dunamancy",
 ];
 
-const CLASS = [
-  "Artificer", "Bard", "Cleric", "Druid", "Paladin", "Ranger", "Sorcerer", "Warlock", "Wizard"
-]
-
-const CASTING_TIMES = [
-  "1 Action", "1 Bonus Action", "1 Reaction", "1 Minute", "10 Minutes", "1 Hour", "8 Hours", "12 Hours", "24 Hours","Special"
+export const CLASS_OPTIONS = [
+  "Artificer",
+  "Bard",
+  "Cleric",
+  "Druid",
+  "Paladin",
+  "Ranger",
+  "Sorcerer",
+  "Warlock",
+  "Wizard",
 ];
 
-const RANGES = [
-  "Touch", "Self", "Self (5 ft)", "Self (15ft)", "Self (30 ft)", "Self (60 ft)", "5 ft", "10 ft", "15 ft", "20 ft", "30 ft", "40 ft", "60 ft", "90 ft", "100 ft","120 ft", "150 ft", "200 ft", "300 ft", "500 ft", "1000 ft", "1 mile", "5 miles", "500 miles", "Sight", "Unlimited"
+export const CASTING_TIMES = [
+  "1 Action",
+  "1 Bonus Action",
+  "1 Reaction",
+  "1 Minute",
+  "10 Minutes",
+  "1 Hour",
+  "8 Hours",
+  "12 Hours",
+  "24 Hours",
+  "Special",
 ];
 
-const DURATIONS = [
-  "Instantaneous", "1 Round", "1 Minute", "10 Minutes", "1 Hour", "8 Hours", "24 Hours", "7 Days", "10 Days", "30 Days", "Until Dispelled", "Until Dispelled or Triggered", "Special"];
-
-const AREAS = ["None", "Line 30 ft", "Line 60 ft", "Line 100 ft", "Sphere 5 ft", "Sphere 10 ft", "Sphere 15 ft", "Sphere 20 ft", "Sphere 30 ft", "Sphere 40 ft", "Sphere 60 ft", "Sphere 5 miles", "Cone 15 ft", "Cone 30 ft", "Cone 60 ft", "Cylinder 5 ft", "Cylinder 10 ft", "Cylinder 20 ft", "Cylinder 30 ft", "Cylinder 40 ft", "Cylinder 50 ft", "Cylinder 60 ft", "Square 5 ft", "Square 10 ft", "Square 20 ft", "Cube 1 ft", "Cube 5 ft", "Cube 10 ft", "Cube 15 ft", "Cube 20 ft", "Cube 30 ft", "Cube 40 ft", "Cube 60 ft", "Cube 100 ft", "Cube 150 ft", "Cube 200 ft", "2,500 ft^2", "40,000 ft^2", "square 1 mile"];
-
-const EFFECT_OPTIONS = [
-  "Combat", "Control", "Utility", "Creation", "Buff", "Communication", "Healing", "Foreknowledge", "Detection", "Charmed", "Debuff", "Frightened", "Blinded", "Prone", "Social", "Shapechanging", "Deception", "Restrained", "Movement", "Exploration", "Summoning", "Warding", "Unconscious", "Dunamancy", "Invisible", "Teleportation", "Deafened", "Additional", "Negation", "Banishment", "Environment", "Stunned", "Petrified", "Paralyzed", "Poison", "Thunder", "Psychic", "Radiant", "Bludgeoning", "Fire", "Force", "Acid", "Necrotic", "Cold", "Lightning", "Piercing", "Slashing"
+export const RANGES = [
+  "Touch",
+  "Self",
+  "Self (5 ft)",
+  "Self (15 ft)",
+  "Self (30 ft)",
+  "Self (60 ft)",
+  "5 ft",
+  "10 ft",
+  "15 ft",
+  "20 ft",
+  "30 ft",
+  "40 ft",
+  "50 ft",
+  "60 ft",
+  "90 ft",
+  "100 ft",
+  "120 ft",
+  "150 ft",
+  "200 ft",
+  "300 ft",
+  "500 ft",
+  "1000 ft",
+  "1 mile",
+  "5 miles",
+  "500 miles",
+  "Sight",
+  "Unlimited",
 ];
 
-const ATTACK_SAVE_TYPES = [
-  "None", "Melee Attack", "Ranged Attack", "DEX Save", "CON Save", "WIS Save", "INT Save", "CHA Save", "STR Save"
+export const DURATIONS = [
+  "Instantaneous",
+  "1 Round",
+  "6 Rounds",
+  "1 Minute",
+  "10 Minutes",
+  "1 Hour",
+  "2 Hours",
+  "8 Hours",
+  "24 Hours",
+  "7 Days",
+  "10 Days",
+  "30 Days",
+  "Until Dispelled",
+  "Until Dispelled or Triggered",
+  "Special",
 ];
 
-const MATERIAL_TYPES = [
-    "Trivial", "Costed", "Consumed"
-  ];
+export const AREAS = [
+  "None",
+  "Line 30 ft",
+  "Line 60 ft",
+  "Line 100 ft",
+  "Sphere 5 ft",
+  "Sphere 10 ft",
+  "Sphere 15 ft",
+  "Sphere 20 ft",
+  "Sphere 30 ft",
+  "Sphere 40 ft",
+  "Sphere 60 ft",
+  "Sphere 5 miles",
+  "Cone 15 ft",
+  "Cone 30 ft",
+  "Cone 60 ft",
+  "Cylinder 5 ft",
+  "Cylinder 10 ft",
+  "Cylinder 20 ft",
+  "Cylinder 30 ft",
+  "Cylinder 40 ft",
+  "Cylinder 50 ft",
+  "Cylinder 60 ft",
+  "Square 5 ft",
+  "Square 10 ft",
+  "Square 20 ft",
+  "Cube 1 ft",
+  "Cube 5 ft",
+  "Cube 10 ft",
+  "Cube 15 ft",
+  "Cube 20 ft",
+  "Cube 30 ft",
+  "Cube 40 ft",
+  "Cube 60 ft",
+  "Cube 100 ft",
+  "Cube 150 ft",
+  "Cube 200 ft",
+  "2,500 ft^2",
+  "40,000 ft^2",
+  "Square 1 mile",
+];
 
-  const evaluationColors = {
-    "Underpowered": "bg-purple-200 text-purple-800",
-    "Low Power": "bg-blue-200 text-blue-800",
-    "Mid Power": "bg-green-200 text-green-800",
-    "High Power": "bg-orange-200 text-orange-800",
-    "Overpowered": "bg-red-200 text-red-800"
-  };
+export const EFFECT_OPTIONS = [
+  "None",
+  "Combat",
+  "Control",
+  "Utility",
+  "Creation",
+  "Buff",
+  "Communication",
+  "Healing",
+  "Foreknowledge",
+  "Detection",
+  "Charmed",
+  "Debuff",
+  "Frightened",
+  "Blinded",
+  "Prone",
+  "Social",
+  "Shapechanging",
+  "Deception",
+  "Restrained",
+  "Movement",
+  "Exploration",
+  "Summoning",
+  "Warding",
+  "Unconscious",
+  "Dunamancy",
+  "Invisible",
+  "Teleportation",
+  "Deafened",
+  "Additional",
+  "Negation",
+  "Banishment",
+  "Environment",
+  "Stunned",
+  "Petrified",
+  "Paralyzed",
+  "Poison",
+  "Thunder",
+  "Psychic",
+  "Radiant",
+  "Bludgeoning",
+  "Fire",
+  "Force",
+  "Acid",
+  "Necrotic",
+  "Cold",
+  "Lightning",
+  "Piercing",
+  "Slashing",
+];
 
-  const THEME_OPTIONS = [
-      // Core Magical Forces
-      "Life", "Death", "Light", "Darkness", "Time", "Dreams", "Elements", "Nature", "Creation", "Destruction",
-    
-      // Abstract Ideals
-      "Wisdom", "Knowledge", "Memory", "Madness", "Justice", "Peace", "War", "Vengeance", "Harmony", "Discord",
-    
-      // Social / Ethical
-      "Protection", "Trickery", "Chaos", "Order", "Balance", "Corruption", "Purity",
-    
-      // Mystical / Spiritual
-      "Divinity", "Fate", "Void", "Soul", "Spirit", "Curse", "Blessing",
-    
-      // Practical / Utility
-      "Travel", "Communication", "Transformation", "Illusion", "Summoning", "Binding", "Control",
+export const DAMAGE_EFFECTS = [
+  "Poison",
+  "Thunder",
+  "Psychic",
+  "Radiant",
+  "Bludgeoning",
+  "Fire",
+  "Force",
+  "Acid",
+  "Necrotic",
+  "Cold",
+  "Lightning",
+  "Piercing",
+  "Slashing",
+];
 
-      // Chaotic / Silly
-      "Luck", "Wild", "Unstable", "Surprise", "Absurdity", "Whimsy", "Joke",
-  
-    
-    "None"
-  ];
+export const ATTACK_SAVE_TYPES = [
+  "None",
+  "Melee Attack",
+  "Ranged Attack",
+  "DEX Save",
+  "CON Save",
+  "WIS Save",
+  "INT Save",
+  "CHA Save",
+  "STR Save",
+];
 
-  export {
-    SPELL_SCHOOLS,
-    CLASS,
-    CASTING_TIMES,
-    RANGES,
-    DURATIONS,
-    AREAS,
-    EFFECT_OPTIONS,
-    ATTACK_SAVE_TYPES,
-    MATERIAL_TYPES,
-    evaluationColors,
-    THEME_OPTIONS
-  };
-  
+export const MATERIAL_TYPES = ["None", "Trivial", "Costed", "Consumed"];
+
+export const SOURCE_TYPES = [
+  "student",
+  "studentVariant",
+  "official",
+  "officialVariant",
+  "faculty",
+  "facultyVariant",
+];
+
+export const EMOTIONAL_TONES = [
+  "None",
+  "Hopeful",
+  "Mournful",
+  "Ominous",
+  "Triumphant",
+  "Serene",
+  "Chaotic",
+  "Grim",
+  "Calm",
+  "Menacing",
+  "Mysterious",
+  "Reverent",
+  "Joyful",
+  "Intimidating",
+  "Playful",
+  "Somber",
+  "Eerie",
+  "Neutral",
+];
+
+export const THEME_OPTIONS = [
+  "Life",
+  "Death",
+  "Light",
+  "Darkness",
+  "Time",
+  "Dreams",
+  "Elements",
+  "Nature",
+  "Creation",
+  "Destruction",
+  "Wisdom",
+  "Knowledge",
+  "Memory",
+  "Madness",
+  "Justice",
+  "Peace",
+  "War",
+  "Vengeance",
+  "Harmony",
+  "Discord",
+  "Protection",
+  "Trickery",
+  "Chaos",
+  "Order",
+  "Balance",
+  "Corruption",
+  "Purity",
+  "Divinity",
+  "Fate",
+  "Void",
+  "Soul",
+  "Spirit",
+  "Curse",
+  "Blessing",
+  "Travel",
+  "Communication",
+  "Transformation",
+  "Illusion",
+  "Summoning",
+  "Binding",
+  "Control",
+  "Luck",
+  "Wild",
+  "Unstable",
+  "Surprise",
+  "Absurdity",
+  "Whimsy",
+  "Joke",
+];
+
+export const EVALUATION_COLORS = {
+  Underpowered: "purple",
+  "Low Power": "blue",
+  "Mid Power": "green",
+  "High Power": "amber",
+  Overpowered: "red",
+  ERROR: "gray",
+};
+
+export const DEFAULT_SPELL = {
+  name: "Arcane Spark",
+  author: "VaultMage",
+  level: 1,
+  school: "Evocation",
+  classes: ["Wizard"],
+  effects: ["Fire", "Combat", "None"],
+  castingTime: "1 Action",
+  range: "30 ft",
+  duration: "Instantaneous",
+  area: "None",
+  concentration: false,
+  ritual: false,
+  damageSpell: true,
+  verbal: true,
+  somatic: true,
+  material: false,
+  materialText: "",
+  materialType: "None",
+  materialCost: 0,
+  attackSave: "Ranged Attack",
+  diceValue: "2d6",
+  avgRoll: 7,
+  targets: 1,
+  upcastable: false,
+  upcastText: "",
+  hasRestriction: false,
+  restrictionText: "",
+  description: "A focused mote of raw flame leaps toward one creature you can see.",
+  version: "1.0.0",
+  themes: ["Elements", "Destruction"],
+  emotionalTone: "Neutral",
+  sourceType: "student",
+};
